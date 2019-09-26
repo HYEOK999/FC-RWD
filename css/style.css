@@ -2,13 +2,26 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(./fonts.css);
 
-*, *::before, *::after {
+
+:root{
+  --point1 : #abd375;
+  --point2 : #e8ca58;
+  --point3 : #c7b39a;
+  --point4 : #eea60a;
+  --point5 : #6aaee6;
+
+}
+
+*,
+*::before,
+*::after {
   font-family: 'Spoqa Han Sans', 'Sans-serif';
   box-sizing: border-box;
 }
 
 /* Reset CSS */
-ul, ol {
+ul,
+ol {
   list-style: none;
   padding-left: 0;
 }
@@ -52,16 +65,12 @@ a {
 
 /* mobile grid */
 
+.responsive{
+  max-width: 100%;
+  height: auto;
+}
+
 /* All Device */
-
-.main {
-  background: skyblue;
-}
-
-.book {
-  background: lime;
-}
-
 .news {
   background: goldenrod;
 }
@@ -82,17 +91,87 @@ a {
   background: orange;
   height: 10vh;
 }
+
 /* All Search */
 
-.search{
+.search {
   text-align: right;
 }
 
-[type="search"]{
+[type="search"] {
   border: 1px solid #aaa;
   border-radius: 0.35em;
   height: 2em;
   margin-right: 0.5em;
+}
+
+/* All main content */
+.sprite {
+  background: url(./images/sprite_main.png) no-repeat;
+  height: 60px;
+  padding-left: 65px;
+}
+
+.main [class*="heading"] {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-heading{
+  background-position: 0 -230px;
+}
+.board-heading {
+  background-position: 0 -115px;
+}
+.favorite-heading {
+  background-position: 0 -345px;
+}
+.twitter-heading {
+  background-position: 0 -460px;
+}
+.book-heading .point{
+  color: var(--point1);
+}
+.news-heading .point {
+  color: var(--point2);
+}
+.board-heading .point {
+  color: var(--point3);
+}
+.favorite-heading .point {
+  color: var(--point4);
+}
+.twitter-heading .point {
+  color: var(--point5);
+}
+
+/* recommand book */
+.book-cover{
+  text-align: center;
+}
+
+.book-detail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-author-name{
+  margin-left: 0.5em;
+}
+
+.book-grade{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--point1);
+}
+
+[class$="summary"]{
+  line-height: 2;
 }
 
 /* Mobile Device */
@@ -121,7 +200,9 @@ a {
     padding-bottom: 1em;
   }
 
-  .logo, .member, .search {
+  .logo,
+  .member,
+  .search {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -150,7 +231,7 @@ a {
     left: -20px; */
   }
 
-  .member a{
+  .member a {
     padding: 0.35em 0;
     display: block;
     margin-left: 1em;
@@ -158,12 +239,12 @@ a {
 
   /* mobile search */
 
-  [type="search"]{
+  [type="search"] {
     width: calc(100% - 3em);
-    
+
   }
 
-  .btn-search{
+  .btn-search {
     border: 0 none;
     padding: 0;
     width: 2em;
@@ -172,7 +253,7 @@ a {
     background: transparent;
   }
 
-  .btn-search::after{
+  .btn-search::after {
     content: "";
     width: 100%;
     height: 100%;
@@ -184,7 +265,7 @@ a {
   }
 
   /* mobile menu */
-  .btn-menubar{
+  .btn-menubar {
     width: 2.5em;
     height: 2.5em;
     border: 0 none;
@@ -197,7 +278,7 @@ a {
     cursor: pointer;
   }
 
-  .menubar{
+  .menubar {
     background: #fff;
     width: 100%;
     height: 25%;
@@ -207,27 +288,27 @@ a {
     transition: all 200ms;
   }
 
-  .menubar-top{
+  .menubar-top {
     top: 0;
   }
 
-  .menubar-middle{
+  .menubar-middle {
     top: 50%;
     transform: translateY(-50%);
     /* 내 상자 크기의 50퍼만큼 위로 */
   }
 
-  .menubar-bottom{
+  .menubar-bottom {
     top: 100%;
     transform: translateY(-100%);
   }
 
-  .nav-act .menubar-top{
+  .nav-act .menubar-top {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
   }
 
-  .nav-act .menubar-middle{
+  .nav-act .menubar-middle {
     transform: translate(-100%, -50%);
   }
 
@@ -337,35 +418,38 @@ a {
   }
 
   /* desktop logo */
-  .logo{
+  .logo {
     position: absolute;
-    left : 0;
-    top : 50%;
+    left: 0;
+    top: 50%;
     margin: 0;
     transform: translateY(-50%);
   }
 
   /* desktop member  */
-  .member{
+  .member {
     display: flex;
     justify-content: flex-end;
   }
 
-  .bar::before{
+  .bar::before {
     content: "|";
     margin: 0 0.5em;
-  }   /*컨텐츠를 안읽어주기 위해 설정*/
+  }
 
-  .member a{
+  /*컨텐츠를 안읽어주기 위해 설정*/
+
+  .member a {
     display: inline-block;
     /* a위 아래 패딩 추가하기 위해 display:block 화 */
     padding: 0.5em 0;
   }
-  [type="search"]{
+
+  [type="search"] {
     width: 40%;
   }
 
-  .btn-search{
+  .btn-search {
     border: 1px solid #aaa;
     border-radius: 0.35em;
     background: #988674;
@@ -375,7 +459,7 @@ a {
   }
 
   /* desktop mainmenu */
-  .navigation{
+  .navigation {
     background: #988574;
     color: #fff;
     box-shadow: 0 -1px 2px 0 #aaa, 0 1px 2px 0 #aaa;
@@ -387,7 +471,7 @@ a {
     display: none;
   }
 
-  .menu{
+  .menu {
     /* background: orange; */
     margin-left: auto;
     margin-right: auto;
@@ -395,7 +479,7 @@ a {
     justify-content: space-between;
   }
 
-  .menu-item{
+  .menu-item {
     /* background: blue; */
     font-weight: 700;
     font-size: 1.15em;
@@ -403,16 +487,16 @@ a {
     display: block;
     margin-bottom: 0.5em;
     text-shadow: 1px 0 0 #000, 0 1px 0 #000,
-                 -1px 0 0 #000, 0 -1px 0 #000;
+      -1px 0 0 #000, 0 -1px 0 #000;
   }
 
-  .sub-menu li{
+  .sub-menu li {
     margin: 0.5em 0;
   }
 
-  .sub-menu a{ 
+  .sub-menu a {
     display: block;
-    padding:  0.35em 0;
+    padding: 0.35em 0;
   }
 
   .main {
