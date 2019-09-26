@@ -1,0 +1,106 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* 숨김 콘텐츠 */
+  .a11y-hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+  }
+  
+  /* clearfix - float 이슈를 해결하기 위한 선언 */
+  .clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  html{
+    font-size: 10px;
+    margin: 0;
+  }
+  
+  .header, .visual-top, .visual-bottom{
+      width: 100vw;
+      margin: 0;
+  }
+  
+  .main-contents {
+      width: calc(100vw - 300px); 
+      margin: 0 auto;
+  }
+  
+  .insta-id, .footer{
+      width: 100vw;
+      margin: 0 auto;
+  }
+  
+  body{
+    margin: 0;
+    color: #181818;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    font-weight: 500;
+    /* overflow-x:hidden; */
+  }
+/* 메인 콘텐츠 new arrivals */
+.new-arrivals{
+    background-color: pink;
+}
+
+
+.new-arrivals figure{
+    margin: 0;
+}
+
+.new-arrivals ul{
+    display: grid;
+    grid-template-columns: 390px 390px 390px;
+    grid-template-rows: 400px 570px 570px;
+    grid-column-gap: 20px;
+    grid-template-areas: "new-arrivals-header new-arrivals-header new-arrivals-header"
+    "li1 li2 li3"
+    "li4 li5 li6"; 
+    list-style: none;
+    padding : 0;
+    margin : 0;
+}
+
+.new-arrivals-img{
+    width: 390px;
+    height: 540px;   
+}
+
+.new-arrivals ul li:nth-child(1){
+    grid-area: li1;
+}
+
+.new-arrivals ul li:nth-child(2){
+    grid-area: li2;
+}
+
+.new-arrivals ul li:nth-child(3){
+    grid-area: li3;
+}
+
+.new-arrivals ul li:nth-child(4){
+    grid-area: li4;
+}
+
+.new-arrivals ul li:nth-child(5){
+    grid-area: li5;
+}
+
+.new-arrivals ul li:nth-child(6){
+    grid-area: li6;
+}
+
