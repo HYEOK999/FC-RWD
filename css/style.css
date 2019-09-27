@@ -110,6 +110,10 @@ a {
   padding-left: 65px;
 }
 
+.main{
+  width: 100%;
+}
+
 .main [class*="heading"] {
   font-size: 1.2em;
   display: flex;
