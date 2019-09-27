@@ -296,6 +296,11 @@ a {
   }
 
   /* mobile layout  */
+  .container{
+    width: 100%;
+    position: relative;
+  }
+/* ?????????????????? */
 
   /* Mobile header */
   .header {
